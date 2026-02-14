@@ -13,7 +13,8 @@ def economic_voltage_level(power, length, Nc):
 
 def mflimit(length):
     # Calculate MF limit using the given formula
-    df = pd.read_csv(r"TnDProject\data\mfLimit.csv")
+    df = pd.read_csv(r"data/mfLimit.csv")
     mf_limit_value = np.interp(length, df["Length"], df["mf_Limit"])
     
+
     return mf_limit_value
