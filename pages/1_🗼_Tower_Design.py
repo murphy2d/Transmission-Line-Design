@@ -58,7 +58,7 @@ col1, col2 = st.columns(2, border= True)
 
 with col1:
     st.subheader("MF Limit Chart 📊")
-    mf_limit = pd.read_csv("TnDProject\data\mfLimit.csv")
+    mf_limit = pd.read_csv(r"data\mfLimit.csv")
     mf_limit.plot(x="Length", y="mf_Limit", kind="line", title="MF Limit vs Length", xlabel="Length (km)", ylabel="MF Limit")
     st.line_chart(mf_limit, x="Length", y="mf_Limit", x_label="Length (km)", y_label="MF Limit", width="stretch")
 
@@ -66,4 +66,5 @@ with col2:
     st.subheader("MF Limit Data 📊")
     st.dataframe(mf_limit, width="stretch")
     mf_limit_value = mflimit(length)
+
     st.write(f"***Mf Limit ({length}) km  :*** {mf_limit_value:.3f}")
