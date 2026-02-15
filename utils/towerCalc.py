@@ -57,6 +57,7 @@ def distance_between_conductors_calculation(insulated_string_length, crossarm_le
 
 #distance between earth wire and top most conductor calculation
 def distance_between_earth_wire_and_top_conductor_calculation(crossarm_length, tower_width, Nc):
+    d = 0
     if Nc == 1:
         d = math.sqrt(3)*(crossarm_length - tower_width/2)
     elif Nc == 2:
@@ -68,3 +69,4 @@ def distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated
     d_earth_wire = d_dash - insulated_string_length
 
     return d_earth_wire
+
