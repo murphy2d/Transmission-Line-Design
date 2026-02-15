@@ -1,0 +1,5 @@
+maximum system voltage (kV),1 min dry withstand voltage (kV),1 min wet withstand voltage (kV),Impulse withstand voltage (kV)
+123,215,185,450
+145,265,230,550
+245,435,395,900
+420,760,680,1550
