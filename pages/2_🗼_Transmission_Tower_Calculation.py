@@ -38,7 +38,7 @@ st.space(size="medium")
 
 # --- INITIALIZATION ---
 if "swing_angle" not in st.session_state:
-    st.session_state.swing_angle = 0
+    st.session_state.swing_angle = 45
 
 # --- PERSISTENCE LOGIC ---
 def sync_state():
@@ -88,4 +88,5 @@ with col2:
     d = distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated_string_length)
 
     st.latex(fr"""d = d' - l = {d_dash:.2f} - {insulated_string_length:.2f} = {d:.2f} \; cm""")
+
 
