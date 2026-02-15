@@ -21,8 +21,9 @@ Welcome to the complete transmission line design application.
             
     
 Use the sidebar to navigate:
-- Tower Design
-- Earth Wire Design
-- Conductor Selection
+- Transmission Line Parameters
+- Transmission Tower Calculation
 - Insulation Design
+- Conductor Selection
+
 """)
