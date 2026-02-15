@@ -2,7 +2,7 @@ import math
 import pandas as pd
 import numpy as np
 
-Vmax = pd.read_csv("TnDProject/data/withstandVoltageCapability.csv")
+Vmax = pd.read_csv("data/withstandVoltageCapability.csv")
 
 def maximum_system_voltage_calculation(V):
     max_sys_V = 1.1 * V
@@ -43,4 +43,5 @@ def impulse_withstand_voltage_calculation(V):
         if row["maximum system voltage (kV)"] == V:
             return row["Impulse withstand voltage (kV)"]
         else:
+
             continue
