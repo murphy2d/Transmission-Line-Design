@@ -50,9 +50,9 @@ col1, col2 = st.columns(2, border= True)
 
 with col1:
     if Nc == 1:
-        st.image("TnDProject/data/TransmissionLineNc1.png", caption="Transmission Tower for Single Circuit", width="stretch")
+        st.image("data/TransmissionLineNc1.png", caption="Transmission Tower for Single Circuit", width="stretch")
     elif Nc == 2:
-        st.image("TnDProject/data/TransmissionLineNc2.png", caption="Transmission Tower for Double Circuit", width="stretch")
+        st.image("data/TransmissionLineNc2.png", caption="Transmission Tower for Double Circuit", width="stretch")
 
 with col2:
     st.subheader("Tower Parameter Calculation")
@@ -84,4 +84,5 @@ with col2:
         st.latex(fr"""Distance \, between \, Earth \, Wire \, and \, Top \, Conductor \, (d') = \sqrt{3} \cdot {crossarm_length:.2f} = {d_dash:.2f} \; cm """)
 
     d = distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated_string_length)
+
     st.latex(fr"""d = d' - l = {d_dash:.2f} - {insulated_string_length:.2f} = {d:.2f} \; cm""")
