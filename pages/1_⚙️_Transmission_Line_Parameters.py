@@ -104,6 +104,10 @@ with col2:
     st.latex(f"mf_{{2}} = \\frac{{{power}}}{{{SIL_2:.3f}}} = {mf_i_2:.3f}")
 
 with col3:
+    #set voltage level and number of circuits in session state for use in other pages
+    st.session_state.V = V
+    st.session_state.Nc = Nc
+    
     st.subheader("Design Decision")
     if mf_i_1 > mf_limit_value and mf_i_2 < mf_limit_value:
         st.write(f"Since, **mf₁ > mf ₗᵢₘᵢₜ** and **mf₂ < mf ₗᵢₘᵢₜ**, we choose V₂ and Nc = 2")
@@ -138,9 +142,8 @@ with col3:
     st.write(f"**Chosen Voltage Level (V) :** {V} kV")
     st.write(f"**Chosen Number of Circuits (Nc) :** {Nc}")
     
-    #set voltage level and number of circuits in session state for use in other pages
-    st.session_state.V = V
-    st.session_state.Nc = Nc
+    
+
 
 
 
