@@ -9,6 +9,10 @@ if "p_val" not in st.session_state:
     st.session_state.p_val = 0
 if "l_val" not in st.session_state:
     st.session_state.l_val = 0
+if "V" not in st.session_state:
+    st.session_state.V = 0
+if "Nc" not in st.session_state:
+    st.session_state.Nc = 0
 
 # --- PERSISTENCE LOGIC ---
 def sync_state():
@@ -137,6 +141,7 @@ with col3:
     #set voltage level and number of circuits in session state for use in other pages
     st.session_state.V = V
     st.session_state.Nc = Nc
+
 
 
 
