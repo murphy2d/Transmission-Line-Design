@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-df = pd.read_csv("TnDProject/data/mfLimit.csv")
+df = pd.read_csv("data/mfLimit.csv")
 
 # Calculate economic voltage level using the given formula
 
@@ -66,4 +66,5 @@ def distance_between_earth_wire_and_top_conductor_calculation(crossarm_length, t
 #distance of earth wire from top most cross arm calculation
 def distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated_string_length):
     d_earth_wire = d_dash - insulated_string_length
+
     return d_earth_wire
