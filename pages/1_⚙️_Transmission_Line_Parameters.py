@@ -69,7 +69,7 @@ col1, col2 = st.columns(2, border= True)
 
 with col1:
     st.subheader("MF Limit Chart 📊")
-    mf_limit = pd.read_csv("TnDProject/data/mfLimit.csv")
+    mf_limit = pd.read_csv("data/mfLimit.csv")
     mf_limit.plot(x="Length", y="mf_Limit", kind="line", title="MF Limit vs Length", xlabel="Length (km)", ylabel="MF Limit")
     st.line_chart(mf_limit, x="Length", y="mf_Limit", x_label="Length (km)", y_label="MF Limit", width="stretch")
 
@@ -137,5 +137,6 @@ with col3:
     #set voltage level and number of circuits in session state for use in other pages
     st.session_state.V = V
     st.session_state.Nc = Nc
+
 
 
