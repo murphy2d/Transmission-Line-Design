@@ -5,7 +5,7 @@ from utils.insulationCalc import maximum_system_voltage_calculation, dry_1min_wi
 
 #set page configuration
 st.set_page_config(
-    page_title="⚡ Transmission Tower Calculation",
+    page_title="Insulation Design",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -188,4 +188,5 @@ with center:
 Final_disc_insulator_number = max(num_discs_dry, num_discs_wet, num_discs_temp, num_discs_lightning, num_discs_switching)
 
 st.write(f"Selected Number of Discs Insulator = {Final_disc_insulator_number} discs")
+
 
