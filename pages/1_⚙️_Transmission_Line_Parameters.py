@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 from utils.towerCalc import economic_voltage_level_calcuation,economic_voltage_level, mflimit, sil_calculation, mf_i_calculation
 
+#set page configuration
+st.set_page_config(
+    page_title="Transmission Line Parameter",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 #input design parameters
 
 # --- INITIALIZATION ---
@@ -143,6 +150,7 @@ with col3:
     #set voltage level and number of circuits in session state for use in other pages
     st.session_state.V = V
     st.session_state.Nc = Nc
+
 
 
 
