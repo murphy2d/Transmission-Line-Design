@@ -50,9 +50,9 @@ with col2:
     #factors consideration
     st.write("**Factors for Insulation Design:**")
 
-    FWR = st.number_input("Flashover Withstand Ratio (FWR)", value=st.session_state.FWR, help="The ratio of the flashover voltage to the system withstand voltage.")
-    ACF = st.number_input("Atmospheric Correction Factor (ACF)", value=st.session_state.ACF, help="A factor that accounts for the effects of atmospheric conditions on insulation performance.")
-    FS = st.number_input("Safety Factor (FS)", value=st.session_state.FS, help="A factor that provides a margin of safety in the design of the insulation system.")
+    FWR = st.number_input("Flashover Withstand Ratio (FWR)", value=st.session_state.FWR, key="FWR_input", help="The ratio of the flashover voltage to the system withstand voltage.", on_change=sync_state)
+    ACF = st.number_input("Atmospheric Correction Factor (ACF)", value=st.session_state.ACF, key="ACF_input",help="A factor that accounts for the effects of atmospheric conditions on insulation performance.", on_change=sync_state)
+    FS = st.number_input("Safety Factor (FS)", value=st.session_state.FS, key="FS_input",help="A factor that provides a margin of safety in the design of the insulation system.", on_change=sync_state)
 
     st.session_state.FWR = FWR
     st.session_state.ACF = ACF
@@ -188,3 +188,4 @@ with center:
 Final_disc_insulator_number = max(num_discs_dry, num_discs_wet, num_discs_temp, num_discs_lightning, num_discs_switching)
 
 st.write(f"Selected Number of Discs Insulator = {Final_disc_insulator_number} discs")
+
