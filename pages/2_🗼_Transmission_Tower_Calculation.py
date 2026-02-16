@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 from utils.towerCalc import air_clearance_calculation, crossarm_length_calculation, insulated_string_length_calculation, distance_between_conductors_calculation, distance_between_earth_wire_and_top_conductor_calculation, distance_of_earth_wire_from_top_most_cross_arm_calculation
 
+#set page configuration
+st.set_page_config(
+    page_title="Tower Design",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 #global variables for voltage level and number of circuits
 V = st.session_state.V
@@ -88,5 +94,6 @@ with col2:
     d = distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated_string_length)
 
     st.latex(fr"""d = d' - l = {d_dash:.2f} - {insulated_string_length:.2f} = {d:.2f} \; cm""")
+
 
 
