@@ -44,7 +44,7 @@ def sync_state():
 st.header(":orange[Conductor Selection] 🔌")
 
 #import acsr conductor table
-acsr_conductor_table = pd.read_csv("TnDProject/data/ACSRconductorTable.csv")
+acsr_conductor_table = pd.read_csv("data/ACSRconductorTable.csv")
 
 #create expander for conductor table
 with st.expander("ACSR Conductor Table IS:398-1976"):
@@ -224,5 +224,6 @@ with tab1:
 
 
 with tab2:
+
 
     st.header("Coming Soon!!!")
