@@ -2,7 +2,7 @@ import streamlit as st
 
 #set page configuration
 st.set_page_config(
-    page_title="⚡ Transmission Line Design",
+    page_title="Transmission Line Design",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -27,3 +27,4 @@ Use the sidebar to navigate:
 - Conductor Selection
 
 """)
+
