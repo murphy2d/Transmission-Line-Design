@@ -3,7 +3,7 @@ import pandas as pd
 import numpy
 
 #import table
-conductor_table = pd.read_csv("TnDProject/data/ACSRconductorTable.csv")
+conductor_table = pd.read_csv("data/ACSRconductorTable.csv")
 
 #line current calculation
 def lineCurrent(power, Nc, V, pfTL):
@@ -83,4 +83,5 @@ def power_loss_calculation_MW(line_current, resistance_75, Nc):
 def efficiency_calculation(power_loss, power):
 
     efficiency = (1-(power_loss/power))*100
+
     return efficiency
