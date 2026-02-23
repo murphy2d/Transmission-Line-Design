@@ -413,7 +413,6 @@ with tab1:
                     "Susceptance (Y)" : [susceptance],
                     "A" : [A],
                     "B" : [B],
-                    "C" : [C],
                     "I_R" : [current_receiving],
                     "V_R" : [voltage_receiving/1000],
                     "V_S" : [voltage_sending],
@@ -480,7 +479,6 @@ with tab1:
                         "Susceptance (Y)" : [susceptance],
                         "A" : [A],
                         "B" : [B],
-                        "C" : [C],
                         "I_R" : [current_receiving],
                         "V_R" : [voltage_receiving/1000],
                         "V_S" : [voltage_sending],
@@ -495,7 +493,7 @@ with tab1:
                 
                 
                 # Convert complex numbers to a clean string format: "real + imag j"
-                complex_cols = ["Impedance (Z)", "Susceptance (Y)", "A", "B", "C", "I_R", "V_R", "V_S"]
+                complex_cols = ["Impedance (Z)", "Susceptance (Y)", "A", "B", "I_R", "V_R", "V_S"]
                 for col in complex_cols:
                     VR_table[col] = VR_table[col].apply(lambda x: f"{x.real:.2f} + {x.imag:.2f}j" if isinstance(x, complex) else x)
 
@@ -537,3 +535,4 @@ with tab1:
 with tab2:
 
     st.header("Coming Soon!!!")
+
