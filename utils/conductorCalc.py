@@ -179,10 +179,16 @@ def GMR_1(bundle_conductor_number, gmr_conductor_L, gmr_conductor_C, bundle_cond
 
 #GMD of Nc = 1 
 
-def GMD_1(GMRandGMD_parameters):
+def GMD_1(GMRandGMD_parameters, y, ROW):
 
-    D = GMRandGMD_parameters["Dab"]/2 * GMRandGMD_parameters["Dac"]/2 * GMRandGMD_parameters["Dba"]/2 * GMRandGMD_parameters["Dbc"]/2 * GMRandGMD_parameters["Dca"]/2 *GMRandGMD_parameters["Dcb"]/2
-    GMD1 = pow(D, 1/6)
+    Dab = math.sqrt(pow(y/2,2) + pow(ROW,2))
+    Dac = y
+    Dba = math.sqrt(pow(y/2,2) + pow(ROW,2))
+    Dbc = math.sqrt(pow(y/2,2) + pow(ROW,2))
+    Dca = y
+    Dcb = math.sqrt(pow(y/2,2) + pow(ROW,2))
+
+    GMD1 = pow(Dab*Dac*Dba*Dbc*Dca*Dcb, 1/6)
 
     return GMD1
 
@@ -265,3 +271,4 @@ def to_polar(complex_number):
 
 
     return f"{mag:.2f} \\angle {angle_deg:.2f}^\\circ "
+
