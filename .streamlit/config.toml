@@ -7,3 +7,5 @@ textColor = "#ffffff"
 font = "serif"
 baseFontSize = 14
 
+[server]
+runOnSave = true
