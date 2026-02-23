@@ -283,7 +283,7 @@ with tab1:
 
     if Nc == 1:
         GMR_L , GMR_C = GMR_1(bundle_conductor_number, gmr_conductor_L, gmr_conductor_C, bundle_conductor_spacing)
-        GMD = GMD_1(GMRandGMD_parameters, y, ROW)
+        GMD = GMD_1(y, ROW)
 
     elif Nc==2:
         
@@ -447,7 +447,7 @@ with tab1:
 
                     if Nc == 1:
                         GMR_L , GMR_C = GMR_1(bundle_conductor_number, gmr_conductor_L, gmr_conductor_C, bundle_conductor_spacing)
-                        GMD = GMD_1(GMRandGMD_parameters, y, ROW)
+                        GMD = GMD_1(y, ROW)
 
                     elif Nc==2:
         
@@ -535,3 +535,4 @@ with tab1:
 with tab2:
 
     st.header("Coming Soon!!!")
+
