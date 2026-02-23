@@ -3,7 +3,7 @@ import pandas as pd
 import cmath
 
 #import table
-conductor_table = pd.read_csv("TnDProject/data/ACSRconductorTable.csv")
+conductor_table = pd.read_csv("data/ACSRconductorTable.csv")
 
 #line current calculation
 def lineCurrent(power, Nc, V, pfTL, bundle_conductor_number):
@@ -262,5 +262,6 @@ def to_polar(complex_number):
 
     mag = abs(complex_number)
     angle_deg = math.degrees(cmath.phase(complex_number))
+
 
     return f"{mag:.2f} \\angle {angle_deg:.2f}^\\circ "
