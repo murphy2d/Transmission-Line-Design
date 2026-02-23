@@ -59,7 +59,7 @@ def sync_state():
 st.header(":orange[Conductor Selection] 🔌")
 
 #import acsr conductor table
-acsr_conductor_table = pd.read_csv("TnDProject/data/ACSRconductorTable.csv")
+acsr_conductor_table = pd.read_csv("data/ACSRconductorTable.csv")
 
 #create expander for conductor table
 with st.expander("ACSR Conductor Table IS:398-1976"):
@@ -301,7 +301,7 @@ with tab1:
             sub_col_left, sub_col_mid, sub_col_right = st.columns([1, 3, 1])
 
             with sub_col_mid:
-                st.image("TnDProject/data/ConductorConfigNc2.png", caption="Fig: Conductor Configuration for Nc = 2", width="content")
+                st.image("data/ConductorConfigNc2.png", caption="Fig: Conductor Configuration for Nc = 2", width="content")
             st.dataframe(df, hide_index=True)
 
         if Nc == 1:
@@ -321,7 +321,7 @@ with tab1:
             sub_col_left, sub_col_mid, sub_col_right = st.columns([1, 3, 1])
 
             with sub_col_mid:
-                st.image("TnDProject/data/conductorConfigNc1.png", caption="Fig: Conductor Configuration for Nc = 1", width="content")
+                st.image("data/conductorConfigNc1.png", caption="Fig: Conductor Configuration for Nc = 1", width="content")
 
             st.dataframe(df, hide_index=True)
 
@@ -533,5 +533,6 @@ with tab1:
 
 
 with tab2:
+
 
     st.header("Coming Soon!!!")
