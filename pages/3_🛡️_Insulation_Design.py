@@ -38,14 +38,14 @@ col1, col2 = st.columns(2, border=True)
 #table for flashover voltage for 254 x 154 mm disc insulator
 with col1:
     st.subheader("Flashover Voltage for 254 x 154 mm Disc Insulator")
-    flashover_voltage_data = pd.read_csv("data/FlashoverVoltageInsulator.csv")
-    st.dataframe(flashover_voltage_data)
+    flashover_voltage_data = pd.read_csv("TnDProject/data/FlashoverVoltageInsulator.csv")
+    st.dataframe(flashover_voltage_data, hide_index=True)
 
 #table for withstand voltage capability
 with col2:
     st.subheader("Withstand Voltage Capability of Insulators")
-    withstand_voltage_data = pd.read_csv("data/withstandVoltageCapability.csv")
-    st.dataframe(withstand_voltage_data)
+    withstand_voltage_data = pd.read_csv("TnDProject/data/withstandVoltageCapability.csv")
+    st.dataframe(withstand_voltage_data, hide_index=True)
 
     #factors consideration
     st.write("**Factors for Insulation Design:**")
@@ -53,11 +53,7 @@ with col2:
     FWR = st.number_input("Flashover Withstand Ratio (FWR)", value=st.session_state.FWR, key="FWR_input", help="The ratio of the flashover voltage to the system withstand voltage.", on_change=sync_state)
     ACF = st.number_input("Atmospheric Correction Factor (ACF)", value=st.session_state.ACF, key="ACF_input",help="A factor that accounts for the effects of atmospheric conditions on insulation performance.", on_change=sync_state)
     FS = st.number_input("Safety Factor (FS)", value=st.session_state.FS, key="FS_input",help="A factor that provides a margin of safety in the design of the insulation system.", on_change=sync_state)
-
-    st.session_state.FWR = FWR
-    st.session_state.ACF = ACF
-    st.session_state.FS = FS    
-
+  
 st.space(size="medium")
 
 col1, col2 = st.columns(2, border=False)
@@ -186,7 +182,4 @@ with center:
     Disc_insulator_number = st.dataframe(insulator_disc_data, hide_index=True, column_config={"Condition": {"alignment": "left"}, "Number of Discs": {"alignment": "left"}})
 
 Final_disc_insulator_number = max(num_discs_dry, num_discs_wet, num_discs_temp, num_discs_lightning, num_discs_switching)
-
 st.write(f"Selected Number of Discs Insulator = {Final_disc_insulator_number} discs")
-
-
