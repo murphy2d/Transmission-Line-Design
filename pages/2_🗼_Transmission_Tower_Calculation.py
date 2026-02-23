@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 from utils.towerCalc import air_clearance_calculation, crossarm_length_calculation, insulated_string_length_calculation, distance_between_conductors_calculation, distance_between_earth_wire_and_top_conductor_calculation, distance_of_earth_wire_from_top_most_cross_arm_calculation
 
+
 #set page configuration
 st.set_page_config(
     page_title="Tower Design",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
 
 #global variables for voltage level and number of circuits
 V = st.session_state.V
@@ -24,7 +26,7 @@ with col1:
     earth_wire_options = pd.DataFrame({
         "Voltage Level (kV)": ["Low Voltage (upto 66 kV)", "Medium Voltage (132 - 220 kV)", "High Voltage (> 220 kV)"],
         "Recommended Earth Wire": ["Single Earth Wire", "Single Earth Wire for Nc =1 and Double Earth Wire for Nc = 2", "Double Earth Wire"]})
-    st.dataframe(earth_wire_options)
+    st.dataframe(earth_wire_options, hide_index=True)
 
 with col2:
     st.subheader("Recommended Earth Wire")
@@ -92,8 +94,7 @@ with col2:
         st.latex(fr"""Distance \, between \, Earth \, Wire \, and \, Top \, Conductor \, (d') = \sqrt{3} \cdot {crossarm_length:.2f} = {d_dash:.2f} \; cm """)
 
     d = distance_of_earth_wire_from_top_most_cross_arm_calculation(d_dash, insulated_string_length)
-
     st.latex(fr"""d = d' - l = {d_dash:.2f} - {insulated_string_length:.2f} = {d:.2f} \; cm""")
 
-
-
+    st.session_state.ROW = ROW
+    st.session_state.y = distance_between_conductors
