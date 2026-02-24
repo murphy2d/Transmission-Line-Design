@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import math
 import cmath
-from utils.conductorCalc import lineCurrent, conductor_selection, resistance_20_degree, resistance_75_degree, power_loss_calculation_MW, efficiency_calculation, gmr, GMRandGMDparameters, GMR_2, GMD_2, GMR_1, GMD_1, plot_efficiency_trend, inductance_L, capacitance_C, impedance_Z, susceptance_Y, abc_parameters, currentReceiving, to_polar
+from utils.conductorCalc import lineCurrent, conductor_selection, resistance_20_degree, resistance_75_degree, power_loss_calculation_MW, efficiency_calculation, gmr, GMRandGMDparameters, GMR_2, GMD_2, GMR_1, GMD_1, plot_efficiency_trend, inductance_L, capacitance_C, impedance_Z, susceptance_Y, abc_parameters, currentReceiving, to_polar, coronaInceptionVoltage 
 
 #set page configuration
 st.set_page_config(
@@ -42,6 +42,11 @@ if "bundle_button" not in st.session_state:
 if "bundle_conductor_spacing" not in st.session_state:    
     st.session_state.bundle_conductor_spacing = 30 #default value for bundle_conductor_spacing
 
+if "air_density_factor" not in st.session_state:    
+    st.session_state.air_density_factor = 0.95 #default value for air density factor
+
+if "surface_irregularity_factor" not in st.session_state:    
+    st.session_state.surface_irregularity_factor = 0.95 #default value for surface_irregularity_factor
 
 def sync_state():
     st.session_state.p_val = st.session_state._p
@@ -526,6 +531,35 @@ with tab1:
     st.subheader("Corona")
     st.space("small")
 
+    col1, col2 = st.columns(2, border=True)
+
+    with col1:
+
+        st.subheader("Parameters")
+        st.write("")
+
+        st.write(f"System Voltage (Vsys) = {V} kV")
+        st.write(f"GMD = {GMD:.2f} cm")
+        st.write(f"GMRc = {GMR_C:.2f} cm")
+
+        air_density_factor = st.number_input("Enter air density factor (ρ)", value = st.session_state.air_density_factor, key="_air_density_factor", on_change=sync_state)
+        surface_irregularity_factor = st.number_input("Enter surface irregularity factor (m)", value = st.session_state.surface_irregularity_factor, key="_surface_irregularity_factor", on_change=sync_state)
+
+    with col2:
+
+        st.subheader("Calculation and Analysis")
+        st.write("")
+
+        st.write(" *Corona Inception Voltage (Vci) :* ")
+        corona_inception_voltage = coronaInceptionVoltage(GMD, GMR_C, air_density_factor, surface_irregularity_factor)
+
+        st.latex(rf"V_{{ci}} = \sqrt{3} \cdot 21.21 \cdot \ln(\frac{{GMD}}{{GMR_C}}) \cdot GMR_C \cdot ρ \cdot m = {corona_inception_voltage:.2f} \, kV")
+
+        st.write("")
+        st.write("Required Condition: Vsys < Vci")
+
+        st.write(f"Since, {V} kV is less than {corona_inception_voltage:.2f} kV, the conductor satisfies the condition.")
+        st.write(f"Selected Conductor = {conductor_selected}")
     
 
 
@@ -535,4 +569,5 @@ with tab1:
 with tab2:
 
     st.header("Coming Soon!!!")
+
 
