@@ -273,3 +273,12 @@ def to_polar(complex_number):
     return f"{mag:.2f} \\angle {angle_deg:.2f}^\\circ "
 
 
+#corona inception voltage
+
+def coronaInceptionVoltage(GMD, GMR_C, air_density_factor, surface_irregularity_factor):
+
+    Vci = math.sqrt(3)*21.21*math.log(GMD/GMR_C)*GMR_C*air_density_factor*surface_irregularity_factor
+
+    return Vci
+
+
