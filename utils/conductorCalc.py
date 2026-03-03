@@ -135,7 +135,7 @@ def GMR_2(bundle_conductor_number, gmr_conductor_L, gmr_conductor_C, GMRandGMD_p
 
         return GMR_L, GMR_C
     
-    elif bundle_conductor_number !=2 :
+    elif bundle_conductor_number !=1 :
 
         r_eq_L = pow(gmr_conductor_L*pow(bundle_conductor_spacing, bundle_conductor_number-1), 1/bundle_conductor_number)
         GMR_a_L = math.sqrt(r_eq_L*GMRandGMD_parameters["Daa'"])
@@ -280,5 +280,6 @@ def coronaInceptionVoltage(GMD, GMR_C, air_density_factor, surface_irregularity_
     Vci = math.sqrt(3)*21.21*math.log(GMD/GMR_C)*GMR_C*air_density_factor*surface_irregularity_factor
 
     return Vci
+
 
 
