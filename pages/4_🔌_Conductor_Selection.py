@@ -65,7 +65,7 @@ def sync_state():
 st.header(":orange[Conductor Selection] 🔌")
 
 #import acsr conductor table
-acsr_conductor_table = pd.read_csv("TnDProject/data/ACSRconductorTable.csv")
+acsr_conductor_table = pd.read_csv("data/ACSRconductorTable.csv")
 
 #create expander for conductor table
 with st.expander("ACSR Conductor Table IS:398-1976"):
@@ -309,7 +309,7 @@ with tab1:
             sub_col_left, sub_col_mid, sub_col_right = st.columns([1, 3, 1])
 
             with sub_col_mid:
-                st.image("TnDProject/data/ConductorConfigNc2.png", caption="Fig: Conductor Configuration for Nc = 2", width="content")
+                st.image("data/ConductorConfigNc2.png", caption="Fig: Conductor Configuration for Nc = 2", width="content")
             st.dataframe(df, hide_index=True)
 
         if Nc == 1:
@@ -329,7 +329,7 @@ with tab1:
             sub_col_left, sub_col_mid, sub_col_right = st.columns([1, 3, 1])
 
             with sub_col_mid:
-                st.image("TnDProject/data/conductorConfigNc1.png", caption="Fig: Conductor Configuration for Nc = 1", width="content")
+                st.image("data/conductorConfigNc1.png", caption="Fig: Conductor Configuration for Nc = 1", width="content")
 
             st.dataframe(df, hide_index=True)
 
@@ -828,7 +828,7 @@ with tab2:
     with design_tabs[0]:
         st.subheader("A. Tension Variations")
         with st.expander(f"📖 Sample Calculation for {samp_name} (Span = 250m)", expanded=False):
-            st.markdown(f"""
+            st.markdown(rf"""
             **Acronyms & Details:**
             * $w_c$: Weight of conductor = {s_c['Weight_Total_kg_per_km']} kg/km = {samp['w_3']:.4f} kg/m
             * $w_w$: Weight due to wind [kg/m]
@@ -1004,4 +1004,5 @@ with tab2:
         }), hide_index=True, use_container_width=True)
 
         overall_best = df_final.loc[df_final["Total Annual cost/km"].idxmin()]
+
         st.success(f"🏆 **Absolute Most Economical Design:** Conductor **{overall_best['Conductor']}** at Span **{overall_best['Economic Span (m)']} m** (Minimum Cost: Rs. {overall_best['Total Annual cost/km']:,.2f}/km)")
